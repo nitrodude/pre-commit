@@ -56,3 +56,10 @@
   entry: hooks/helmlint.sh
   language: script
   files: \.((ya?ml)|(tpl))$
+
+- id: idefix
+  name: idefix
+  description: Run helm lint, a linter for helm charts
+  entry: hooks/idefix.sh
+  language: script
+  files: \.((ya?ml)|(tpl))$
