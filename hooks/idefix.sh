@@ -41,8 +41,7 @@ nocolor=$'\e[0m'
 
 
 for file in "$@"; do
-  echo $"basename $file"
-  if [[ $"basename $file" == "values.yaml" ]]; then
+  if [[ $"basename $file" == *"values.yaml"* ]]; then
     # Unset previously parsed variables from the values file of the lms-master-chart
     for image in $(grep -E "repository:" "${file}" | awk '{print $2}'); do
       echo "${light_cyan}Image: ${image}${nocolor}"
