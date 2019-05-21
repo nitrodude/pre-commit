@@ -54,7 +54,7 @@ for file in "$@"; do
 
       if [[ "${latest_tag}" != "${current_tag}" ]]; then
         echo "${red}Current tag is not up to date${nocolor}"
-        exit 0
+        exit 1
       else
         echo "${green}Current tag is up to date${nocolor}"
       fi
