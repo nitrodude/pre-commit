@@ -59,7 +59,7 @@
 
 - id: idefix
   name: idefix
-  description: Run helm lint, a linter for helm charts
+  description: Run idefix image version check
   entry: hooks/idefix.sh
   language: script
   files: \.((ya?ml)|(tpl))$

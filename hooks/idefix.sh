@@ -38,10 +38,10 @@ nocolor=$'\e[0m'
 # OSX GUI apps do not pick up environment variables the same way as Terminal apps and there are no easy solutions,
 # especially as Apple changes the GUI app behavior every release (see https://stackoverflow.com/q/135688/483528). As a
 # workaround to allow GitHub Desktop to work, add this (hopefully harmless) setting here.
-export PATH=$PATH:/usr/local/bin
 
 
 for file in "$@"; do
+  echo $"basename $file"
   if [[ $"basename $file" == "values.yaml" ]]; then
     # Unset previously parsed variables from the values file of the lms-master-chart
     for image in $(grep -E "repository:" "${file}" | awk '{print $2}'); do
