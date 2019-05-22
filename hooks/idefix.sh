@@ -42,6 +42,7 @@ exit_code=0
 
 for file in "$@"; do
   if [[ $"basename $file" == *"values.yaml"* ]]; then
+    echo checking $"basename $file"
     # Unset previously parsed variables from the values file of the lms-master-chart
     for image in $(grep -E "repository:" "${file}" | awk '{print $2}'); do
       echo "${light_cyan}Image: ${image}${nocolor}"
