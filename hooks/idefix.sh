@@ -61,4 +61,4 @@ for file in "$@"; do
     done
   fi
 done
-return $exit_code
+exit $exit_code
