@@ -38,7 +38,7 @@ nocolor=$'\e[0m'
 # OSX GUI apps do not pick up environment variables the same way as Terminal apps and there are no easy solutions,
 # especially as Apple changes the GUI app behavior every release (see https://stackoverflow.com/q/135688/483528). As a
 # workaround to allow GitHub Desktop to work, add this (hopefully harmless) setting here.
-
+exit_code=0
 
 for file in "$@"; do
   if [[ $"basename $file" == *"values.yaml"* ]]; then
@@ -53,7 +53,7 @@ for file in "$@"; do
 
       if [[ "${latest_tag}" != "${current_tag}" ]]; then
         echo "${red}Current tag is not up to date${nocolor}"
-        exit 1
+        exit_code=1
       else
         echo "${green}Current tag is up to date${nocolor}"
       fi
@@ -61,3 +61,4 @@ for file in "$@"; do
     done
   fi
 done
+return $exit_code
